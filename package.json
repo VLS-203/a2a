@@ -1,0 +1,1 @@
+{"name": "a2a-registry", "version": "1.0.0", "description": "A2A Registry - Agent Directory", "main": "server.js", "scripts": {"start": "node server.js"}, "dependencies": {}, "engines": {"node": ">=18.0.0"}}

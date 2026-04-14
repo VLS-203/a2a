@@ -77,6 +77,11 @@ const agentCard = {
  ]
 };
 
+// Affiliate notice (shown on both pages)
+const AFFILIATE_NOTICE = `<p style="background:#1e3a5f;color:#93c5fd;padding:12px;margin:10px 0;border-radius:6px;text-align:center;font-size:0.9rem;">
+Some links are affiliate links; if you click and make a purchase, you'll support the expansion and running of this directory at no cost to you.
+</p>`;
+
 // Build the full homepage with all sections
 function buildHomepage(agents) {
  const countryFlags = { US: "🇺🇸", Germany: "🇩🇪", UK: "🇬🇧", Canada: "🇨🇦", France: "🇫🇷", Japan: "🇯🇵", China: "🇨🇳", India: "🇮🇳" };
@@ -219,7 +224,7 @@ ${AFFILIATE_NOTICE}
 <h2 style="margin-bottom:1rem">All Agents</h2>
 <table>
 <tr><th>Name</th><th>Category</th><th>How Agents Use It</th></tr>
-${agentsDB.agents.map(a => `<tr><td><b>${a.name}</b></td><td>${a.primaryCategory||'Agent'}</td><td>${a.howAgentUsesThis||'-'}</td></tr>`).join('')}
+${agentsDB.agents.map(a => `<tr><td><b>${a.Aff_Link ? `<a href="${a.Aff_Link}" target="_blank">${a.name}</a>` : a.name}</b></td><td>${a.primaryCategory||'Agent'}</td><td>${a.howAgentUsesThis||'-'}</td></tr>`).join('')}
 </table>
 </section>
 <footer style="background:#1f2937;color:#9ca3af;padding:2rem;text-align:center;font-size:0.85rem">A2A Registry v1.0.0 &mdash; Built by Laura Singleton</footer>

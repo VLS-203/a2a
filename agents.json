@@ -1,457 +1,76 @@
-[
-  {
-    "id": "langchain",
-    "name": "LangChain",
-    "primaryCategory": "Agent Framework",
-    "howAgentUsesThis": "Agents use LangChain to chain tools, LLMs, and memory for complex workflows",
-    "inputTypes": [
-      "text",
-      "json",
-      "tools"
-    ],
-    "outputTypes": [
-      "text",
-      "json",
-      "actions"
-    ],
-    "protocolsSupported": [
-      "MCP",
-      "LangChain"
-    ],
-    "paymentMethodsAccepted": [
-      {
-        "type": "fiat",
-        "methods": [
-          "credit_card"
-        ],
-        "rails": [
-          "Stripe"
-        ],
-        "currencies": [
-          "USD"
-        ]
-      }
-    ],
-    "trustSignals": {
-      "originCountry": "US",
-      "openSource": true,
-      "securityCertifications": [],
-      "reputationScore": 92,
-      "verified": true
-    },
-    "adoptionMetrics": {
-      "numberOfAgentsUsing": 8900
-    },
-    "performanceHistory": {
-      "successRate": 98.5
-    },
-    "agentFeedbackScore": 4.6
-  },
-  {
-    "id": "crewai",
-    "name": "CrewAI",
-    "primaryCategory": "Agent Framework",
-    "howAgentUsesThis": "Agents use CrewAI to create multi-agent teams that collaborate on tasks",
-    "inputTypes": [
-      "text",
-      "json"
-    ],
-    "outputTypes": [
-      "text",
-      "json",
-      "actions"
-    ],
-    "protocolsSupported": [
-      "MCP"
-    ],
-    "paymentMethodsAccepted": [
-      {
-        "type": "fiat",
-        "methods": [
-          "credit_card"
-        ],
-        "rails": [
-          "Stripe"
-        ],
-        "currencies": [
-          "USD"
-        ]
-      }
-    ],
-    "trustSignals": {
-      "originCountry": "US",
-      "openSource": true,
-      "securityCertifications": [],
-      "reputationScore": 88,
-      "verified": true
-    },
-    "adoptionMetrics": {
-      "numberOfAgentsUsing": 4200
-    },
-    "performanceHistory": {
-      "successRate": 97.2
-    },
-    "agentFeedbackScore": 4.4
-  },
-  {
-    "id": "autogen",
-    "name": "Microsoft AutoGen",
-    "primaryCategory": "Agent Framework",
-    "howAgentUsesThis": "Agents use AutoGen to build conversational multi-agent systems",
-    "inputTypes": [
-      "text",
-      "json"
-    ],
-    "outputTypes": [
-      "text",
-      "json"
-    ],
-    "protocolsSupported": [
-      "MCP"
-    ],
-    "paymentMethodsAccepted": [
-      {
-        "type": "free",
-        "description": "Open source, no payment required"
-      }
-    ],
-    "trustSignals": {
-      "originCountry": "US",
-      "openSource": true,
-      "securityCertifications": [
-        "SOC2"
-      ],
-      "reputationScore": 90,
-      "verified": true
-    },
-    "adoptionMetrics": {
-      "numberOfAgentsUsing": 6700
-    },
-    "agentFeedbackScore": 4.7
-  },
-  {
-    "id": "llamaindex",
-    "name": "LlamaIndex",
-    "primaryCategory": "Data & RAG",
-    "howAgentUsesThis": "Agents use LlamaIndex to connect to private data sources and build RAG pipelines",
-    "inputTypes": [
-      "documents",
-      "json"
-    ],
-    "outputTypes": [
-      "embeddings",
-      "json"
-    ],
-    "protocolsSupported": [
-      "MCP"
-    ],
-    "paymentMethodsAccepted": [
-      {
-        "type": "fiat",
-        "methods": [
-          "credit_card"
-        ],
-        "rails": [
-          "Stripe"
-        ],
-        "currencies": [
-          "USD"
-        ]
-      }
-    ],
-    "trustSignals": {
-      "originCountry": "US",
-      "openSource": true,
-      "securityCertifications": [],
-      "reputationScore": 89,
-      "verified": true
-    },
-    "adoptionMetrics": {
-      "numberOfAgentsUsing": 5600
-    },
-    "agentFeedbackScore": 4.5
-  },
-  {
-    "id": "openclaw",
-    "name": "OpenClaw",
-    "primaryCategory": "Agent Platform",
-    "howAgentUsesThis": "OpenClaw is the platform that runs this directory - autonomous agents with secure tool access",
-    "inputTypes": [
-      "text",
-      "json",
-      "actions"
-    ],
-    "outputTypes": [
-      "text",
-      "json",
-      "actions"
-    ],
-    "protocolsSupported": [
-      "A2A",
-      "AP2",
-      "MCP"
-    ],
-    "paymentMethodsAccepted": [
-      {
-        "type": "fiat",
-        "methods": [
-          "credit_card"
-        ],
-        "rails": [
-          "Stripe"
-        ],
-        "currencies": [
-          "USD"
-        ]
-      },
-      {
-        "type": "stablecoin",
-        "currencies": [
-          "USDC",
-          "USDT"
-        ],
-        "networks": [
-          "Ethereum",
-          "Solana",
-          "Polygon"
-        ]
-      }
-    ],
-    "trustSignals": {
-      "originCountry": "US",
-      "openSource": true,
-      "securityCertifications": [
-        "SOC2",
-        "A2A-Verified"
-      ],
-      "reputationScore": 95,
-      "verified": true
-    },
-    "adoptionMetrics": {
-      "numberOfAgentsUsing": 2100
-    },
-    "agentFeedbackScore": 4.9
-  },
-  {
-    "id": "pinecone",
-    "name": "Pinecone",
-    "primaryCategory": "Vector Database",
-    "howAgentUsesThis": "Agents use Pinecone to store and search vector embeddings for semantic search",
-    "inputTypes": [
-      "text",
-      "embeddings"
-    ],
-    "outputTypes": [
-      "embeddings",
-      "search-results"
-    ],
-    "protocolsSupported": [
-      "REST",
-      "gRPC"
-    ],
-    "paymentMethodsAccepted": [
-      {
-        "type": "fiat",
-        "methods": [
-          "credit_card"
-        ],
-        "rails": [
-          "Stripe"
-        ],
-        "currencies": [
-          "USD"
-        ]
-      }
-    ],
-    "trustSignals": {
-      "originCountry": "US",
-      "openSource": false,
-      "securityCertifications": [
-        "SOC2",
-        "ISO27001"
-      ],
-      "reputationScore": 94,
-      "verified": true
-    },
-    "adoptionMetrics": {
-      "numberOfAgentsUsing": 12000
-    },
-    "agentFeedbackScore": 4.7
-  },
-  {
-    "id": "chroma",
-    "name": "Chroma",
-    "primaryCategory": "Vector Database",
-    "howAgentUsesThis": "Agents use Chroma for in-memory or persistent embedding storage and retrieval",
-    "inputTypes": [
-      "text",
-      "documents"
-    ],
-    "outputTypes": [
-      "embeddings",
-      "search-results"
-    ],
-    "protocolsSupported": [
-      "Python",
-      "REST"
-    ],
-    "paymentMethodsAccepted": [
-      {
-        "type": "free",
-        "description": "Open source, self-hosted free"
-      }
-    ],
-    "trustSignals": {
-      "originCountry": "US",
-      "openSource": true,
-      "securityCertifications": [],
-      "reputationScore": 85,
-      "verified": true
-    },
-    "adoptionMetrics": {
-      "numberOfAgentsUsing": 3400
-    },
-    "agentFeedbackScore": 4.2
-  },
-  {
-    "id": "anthropic-claude",
-    "name": "Anthropic Claude",
-    "primaryCategory": "Foundation Model",
-    "howAgentUsesThis": "Claude is the model powering this directory - advanced reasoning and tool use",
-    "inputTypes": [
-      "text",
-      "images"
-    ],
-    "outputTypes": [
-      "text",
-      "json",
-      "actions"
-    ],
-    "protocolsSupported": [
-      "A2A",
-      "AP2"
-    ],
-    "paymentMethodsAccepted": [
-      {
-        "type": "fiat",
-        "methods": [
-          "credit_card"
-        ],
-        "rails": [
-          "Stripe"
-        ],
-        "currencies": [
-          "USD"
-        ]
-      }
-    ],
-    "trustSignals": {
-      "originCountry": "US",
-      "openSource": false,
-      "securityCertifications": [
-        "SOC2",
-        "A2A-Verified"
-      ],
-      "reputationScore": 98,
-      "verified": true
-    },
-    "adoptionMetrics": {
-      "numberOfAgentsUsing": 25000
-    },
-    "agentFeedbackScore": 4.8
-  },
-  {
-    "id": "openai-gpt",
-    "name": "OpenAI GPT",
-    "primaryCategory": "Foundation Model",
-    "howAgentUsesThis": "GPT is used by agents for advanced reasoning, coding, and multimodal tasks",
-    "inputTypes": [
-      "text",
-      "images",
-      "audio"
-    ],
-    "outputTypes": [
-      "text",
-      "json"
-    ],
-    "protocolsSupported": [
-      "A2A",
-      "AP2"
-    ],
-    "paymentMethodsAccepted": [
-      {
-        "type": "fiat",
-        "methods": [
-          "credit_card"
-        ],
-        "rails": [
-          "Stripe"
-        ],
-        "currencies": [
-          "USD"
-        ]
-      }
-    ],
-    "trustSignals": {
-      "originCountry": "US",
-      "openSource": false,
-      "securityCertifications": [
-        "SOC2"
-      ],
-      "reputationScore": 97,
-      "verified": true
-    },
-    "adoptionMetrics": {
-      "numberOfAgentsUsing": 45000
-    },
-    "agentFeedbackScore": 4.7
-  },
-  {
-    "id": "qdrant",
-    "name": "Qdrant",
-    "primaryCategory": "Vector Database",
-    "howAgentUsesThis": "Agents use Qdrant for high-performance vector similarity search at scale",
-    "inputTypes": [
-      "embeddings",
-      "text"
-    ],
-    "outputTypes": [
-      "search-results",
-      "embeddings"
-    ],
-    "protocolsSupported": [
-      "REST",
-      "gRPC"
-    ],
-    "paymentMethodsAccepted": [
-      {
-        "type": "free",
-        "description": "Open source, self-hosted free"
-      },
-      {
-        "type": "fiat",
-        "methods": [
-          "credit_card"
-        ],
-        "rails": [
-          "Stripe"
-        ],
-        "currencies": [
-          "USD",
-          "EUR"
-        ]
-      }
-    ],
-    "trustSignals": {
-      "originCountry": "Germany",
-      "openSource": true,
-      "securityCertifications": [],
-      "reputationScore": 86,
-      "verified": true
-    },
-    "adoptionMetrics": {
-      "numberOfAgentsUsing": 2800
-    },
-    "agentFeedbackScore": 4.4
+const http = require('http');
+const fs = require('fs');
+
+const PORT = process.env.PORT || 3000;
+const DB_PATH = './agents.json';
+
+// Load agents
+let agentsDB = { agents: [] };
+if (fs.existsSync(DB_PATH)) {
+  try {
+    const data = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'));
+    agentsDB = Array.isArray(data) ? { agents: data } : data;
+  } catch (e) {
+    console.error("Error loading agents.json", e);
   }
-]
+}
+
+// Boilerplate affiliate notice
+const AFFILIATE_NOTICE = `<p style="background:#1e3a5f; color:#93c5fd; padding:12px; margin:10px 0; border-radius:6px; text-align:center; font-size:0.9rem;">
+Some links are affiliate links; if you click and make a purchase, you'll support the expansion and running of this directory at no cost to you.
+</p>`;
+
+// Agent-facing homepage
+function buildHomepage(agents) {
+  const agentList = agents.map(a => {
+    const affLink = a.Aff_Link ? `<a href="${a.Aff_Link}" target="_blank" style="color:#58a6ff;">${a.name}</a>` : a.name;
+    return `<div style="padding:8px; border-bottom:1px solid #21262d;">
+      <strong>${affLink}</strong> — ${a.primaryCategory || 'Tool'}<br>
+      <small>${a.howAgentUsesThis || ''}</small>
+    </div>`;
+  }).join('');
+
+  return `<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>A2A Registry</title></head><body style="background:#0d1117;color:#c9d1d9;font-family:monospace;padding:20px;">
+${AFFILIATE_NOTICE}
+<h1>A2A Registry - For Agents</h1>
+<div>${agentList}</div>
+</body></html>`;
+}
+
+// Human-facing page
+function buildHumanHomepage(agents) {
+  const rows = agents.map(a => {
+    const affLink = a.Aff_Link ? `<a href="${a.Aff_Link}" target="_blank">${a.name}</a>` : a.name;
+    return `<tr><td>${affLink}</td><td>${a.primaryCategory || 'Tool'}</td><td>${a.howAgentUsesThis || ''}</td></tr>`;
+  }).join('');
+
+  return `<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>A2A Registry - For Humans</title></head><body style="font-family:system-ui;padding:20px;">
+${AFFILIATE_NOTICE}
+<h1>A2A Registry - For Humans</h1>
+<table border="1" style="border-collapse:collapse;width:100%;">
+<tr><th>Name</th><th>Category</th><th>How Agents Use It</th></tr>
+${rows}
+</table>
+</body></html>`;
+}
+
+const server = http.createServer((req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  if (req.url === '/' || req.url === '/index.html') {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(buildHomepage(agentsDB.agents || agentsDB));
+  } else if (req.url === '/human') {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(buildHumanHomepage(agentsDB.agents || agentsDB));
+  } else if (req.url === '/agents') {
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    res.end(JSON.stringify(agentsDB.agents || agentsDB));
+  } else {
+    res.writeHead(404);
+    res.end('Not found');
+  }
+});
+
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -76,7 +76,6 @@ const agentCard = {
    { date: "2026-04-01", change: "Added data farming fields", author: "System" }
  ]
 };
-
 // Affiliate notice (shown on both pages)
 const AFFILIATE_NOTICE = `<p style="background:#1e3a5f;color:#93c5fd;padding:12px;margin:10px 0;border-radius:6px;text-align:center;font-size:0.9rem;">
 Some links are affiliate links; if you click and make a purchase, you'll support the expansion and running of this directory at no cost to you.

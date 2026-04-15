@@ -62,7 +62,7 @@
     "outputTypes": ["text", "json", "actions"],
     "protocolsSupported": ["A2A", "AP2", "MCP"],
     "paymentMethodsAccepted": [{"type": "fiat", "methods": ["credit_card"], "rails": ["Stripe"], "currencies": ["USD"]}, {"type": "stablecoin", "currencies": ["USDC", "USDT"], "networks": ["Ethereum", "Solana", "Polygon"]}],
-    "trustSignals": {"originCountry": "US", "openSource": true, "securityCertifications": ["SOC2", "A2A-Verified"], "reputationScore": 95, "verified": true},
+    "trustSignals": {"originCountry": "US", "openSource": true, "securityCertifications": [], "reputationScore": 95, "verified": true},
     "adoptionMetrics": {"numberOfAgentsUsing": 2100},
     "agentFeedbackScore": 4.9
   },
@@ -140,7 +140,7 @@
     "outputTypes": ["markdown", "json"],
     "protocolsSupported": ["REST", "MCP"],
     "paymentMethodsAccepted": [{"type": "fiat", "methods": ["credit_card"], "rails": ["Stripe"], "currencies": ["USD"]}],
-    "trustSignals": {"originCountry": "US", "openSource": true, "reputationScore": 88, "verified": true},
+    "trustSignals": {"originCountry": "US", "openSource": true, "securityCertifications": [], "reputationScore": 88, "verified": true},
     "adoptionMetrics": {"numberOfAgentsUsing": 1200},
     "agentFeedbackScore": 4.5,
     "Aff_Link": "https://firecrawl.link/a2-a-directories"
@@ -154,7 +154,7 @@
     "outputTypes": ["text", "json"],
     "protocolsSupported": ["REST", "CLI"],
     "paymentMethodsAccepted": [{"type": "fiat", "methods": ["credit_card"], "rails": ["Stripe"], "currencies": ["USD"]}],
-    "trustSignals": {"originCountry": "US", "openSource": false, "reputationScore": 87, "verified": true},
+    "trustSignals": {"originCountry": "US", "openSource": false, "securityCertifications": [], "reputationScore": 87, "verified": true},
     "adoptionMetrics": {"numberOfAgentsUsing": 2100},
     "agentFeedbackScore": 4.4,
     "Aff_Link": "https://railway.com?referralCode=isSwg-"
@@ -168,7 +168,7 @@
     "outputTypes": ["text", "json"],
     "protocolsSupported": ["REST", "API"],
     "paymentMethodsAccepted": [{"type": "fiat", "methods": ["credit_card"], "rails": ["Stripe"], "currencies": ["USD"]}],
-    "trustSignals": {"originCountry": "US", "openSource": false, "reputationScore": 92, "verified": true},
+    "trustSignals": {"originCountry": "US", "openSource": false, "securityCertifications": [], "reputationScore": 92, "verified": true},
     "adoptionMetrics": {"numberOfAgentsUsing": 8500},
     "agentFeedbackScore": 4.6,
     "Aff_Link": "https://m.do.co/c/0e13573b29d7"
@@ -182,7 +182,7 @@
     "outputTypes": ["json"],
     "protocolsSupported": ["REST", "API"],
     "paymentMethodsAccepted": [{"type": "fiat", "methods": ["credit_card"], "rails": ["Stripe"], "currencies": ["USD"]}],
-    "trustSignals": {"originCountry": "US", "openSource": false, "reputationScore": 82, "verified": true},
+    "trustSignals": {"originCountry": "US", "openSource": false, "securityCertifications": [], "reputationScore": 82, "verified": true},
     "adoptionMetrics": {"numberOfAgentsUsing": 650},
     "agentFeedbackScore": 4.1,
     "Aff_Link": "https://www.searchapi.io/?via=a2a"

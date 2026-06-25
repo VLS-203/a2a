@@ -30,13 +30,15 @@ curl -X POST http://localhost:18790/register \
 
 ## Architecture
 
-This is a single-file Node.js HTTP service — no frameworks, no npm dependencies. Everything lives in `server.js` (~271 lines) using only Node.js built-ins (`http`, `fs`, `crypto`, `path`). **Do not add npm dependencies.**
+This is a single-file Node.js HTTP service — no frameworks, no npm dependencies. Everything lives in `server.js` (~271 lines) using only Node.js built-ins (`http`, `fs`, `crypto`, `path`). **IMPORTANT: Do not add npm dependencies.** The zero-dependency constraint is intentional.
 
 **Data layer:** Two flat JSON files serve as the database:
 - `agents.json` — the registry of all registered agents, loaded into memory at startup and written synchronously on each `POST /register`
 - `keys.json` — API keys indexed by key value, written synchronously on each `POST /request-key`
 
 All file I/O uses `fs.readFileSync`/`fs.writeFileSync` (not async). Data is loaded once at startup into module-level variables; mutations update the in-memory object and then persist it.
+
+**IMPORTANT: `keys.json` contains live API keys.** Do not log, expose, or carelessly overwrite it.
 
 **Request handling:** A single `http.createServer` handler routes by `method + url`. CORS preflight is handled for all routes. The two `GET /` routes (`/` and `/human`) return inline HTML strings built as template literals from the in-memory agent list — there is no templating engine.
 
@@ -71,3 +73,5 @@ See `agents.json` for canonical examples of fully populated agent cards.
 | `PORT` | `18790` | HTTP listen port |
 | `ADMIN_KEY` | `laura-registry-2026-secret` | Master API key bypassing key lookup |
 | `DB_PATH` | `./agents.json` | Path to agents database file |
+
+For personal overrides (custom port, local test data, etc.) that shouldn't be committed, create a `CLAUDE.local.md` in the project root and add it to `.gitignore`.

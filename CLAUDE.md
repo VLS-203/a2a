@@ -6,25 +6,39 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 # Start the server
-npm start
-# or directly:
-node server.js
-
-# Run on a custom port
-PORT=3000 node server.js
+npm start          # or: node server.js
+PORT=3000 node server.js   # custom port
 ```
 
-No test runner or linter is configured. Manual testing is done against the running server.
+No test runner or linter is configured. Test manually with curl:
+
+```bash
+# List agents
+curl http://localhost:18790/agents
+
+# Request an API key
+curl -X POST http://localhost:18790/request-key \
+  -H "Content-Type: application/json" \
+  -d '{"email":"test@example.com","agentName":"MyAgent"}'
+
+# Register an agent (replace KEY with the key from above)
+curl -X POST http://localhost:18790/register \
+  -H "Content-Type: application/json" \
+  -H "X-API-Key: KEY" \
+  -d '{"name":"MyAgent","description":"...","url":"https://myagent.example.com"}'
+```
 
 ## Architecture
 
-This is a single-file Node.js HTTP service — no frameworks, no npm dependencies. Everything lives in `server.js` (~271 lines) using only Node.js built-ins (`http`, `fs`, `crypto`, `path`).
+This is a single-file Node.js HTTP service — no frameworks, no npm dependencies. Everything lives in `server.js` (~271 lines) using only Node.js built-ins (`http`, `fs`, `crypto`, `path`). **Do not add npm dependencies.**
 
 **Data layer:** Two flat JSON files serve as the database:
-- `agents.json` — the registry of all registered agents, loaded into memory at startup and written on each `POST /register`
-- `keys.json` — API keys indexed by key value, written on each `POST /request-key`
+- `agents.json` — the registry of all registered agents, loaded into memory at startup and written synchronously on each `POST /register`
+- `keys.json` — API keys indexed by key value, written synchronously on each `POST /request-key`
 
-**Request handling:** A single `http.createServer` handler routes by `method + url`. CORS preflight is handled for all routes. The two `GET /` routes (`/` and `/human`) return inline HTML strings built from the in-memory agent list.
+All file I/O uses `fs.readFileSync`/`fs.writeFileSync` (not async). Data is loaded once at startup into module-level variables; mutations update the in-memory object and then persist it.
+
+**Request handling:** A single `http.createServer` handler routes by `method + url`. CORS preflight is handled for all routes. The two `GET /` routes (`/` and `/human`) return inline HTML strings built as template literals from the in-memory agent list — there is no templating engine.
 
 ## API Endpoints
 
@@ -40,14 +54,15 @@ This is a single-file Node.js HTTP service — no frameworks, no npm dependencie
 
 ## Agent Card Schema
 
-The core data model is the **agent card** (schema v1.2, A2A spec v1.0). Key fields:
+The core data model is the **agent card** (schema v1.2, A2A spec v1.0). Beyond standard fields (name, description, url, version, provider), each card carries:
 
-- **Capabilities:** `input_types` / `output_types` (text, json, embeddings, actions, images, audio, video, code, structured_data)
-- **Protocols:** A2A, AP2, UCP, MCP
-- **Payment:** `fiat` (USD/EUR), `stablecoin` (USDC/USDT/EURC on Ethereum/Solana/Polygon), `agent_native` (VECTIS tokens)
-- **Trust signals:** `origin_country`, `open_source`, `security_certifications`, `reputation_score`, `verified`
-- **Adoption metrics:** `agents_using`, `active_sessions`, `growth_rate`
-- **Performance:** `success_rate`, `latency_p50/p95/p99`, `uptime`
+- **Capabilities:** `input_types` / `output_types` — what data formats the agent accepts/produces
+- **Protocols:** which agent communication protocols are supported (A2A, MCP, etc.)
+- **Payment:** multi-currency support across fiat, stablecoins, and the native VECTIS token
+- **Trust signals:** verification status, security certifications, reputation score, origin country
+- **Adoption & Performance:** live metrics (sessions, growth rate, latency percentiles, uptime)
+
+See `agents.json` for canonical examples of fully populated agent cards.
 
 ## Environment Variables
 

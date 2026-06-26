@@ -1,10 +1,13 @@
 const http = require('http');
 const fs = require('fs');
 const crypto = require('crypto');
+const wardrobe = require('./wardrobe');
 
 const PORT = process.env.PORT || 18790;
 const ADMIN_KEY = process.env.ADMIN_KEY || 'laura-registry-2026-secret';
 const DB_PATH = process.env.DB_PATH || __dirname + '/agents.json';
+
+wardrobe.ensureDirs();
 
 // Load agents
 let agentsDB = { agents: [] };
@@ -262,6 +265,11 @@ const server = http.createServer(async (req, res) => {
   if (url === '/request-key' && method === 'POST') {
     res.writeHead(201); res.end(JSON.stringify({key: generateKey(), message:'Key generated'}));
     return;
+  }
+  // Wardrobe app
+  if (url.startsWith('/wardrobe')) {
+    const handled = await wardrobe.handleRequest(req, res, url, method);
+    if (handled) return;
   }
   res.writeHead(404); res.end(JSON.stringify({error:'Not Found'}));
 });
